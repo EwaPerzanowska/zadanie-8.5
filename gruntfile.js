@@ -2,7 +2,7 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
-  	
+
   	sass: {
   		options: {
   			sourceMap: true
@@ -26,17 +26,16 @@ module.exports = function(grunt) {
   	},
 
     browserSync: {
-		bsFiles: {
-			src : '*.js'   
-        },
-        options: {
-            watchTask: true,
-            server: {
-                    baseDir: "./"
-            }
+  		bsFiles: {
+  			src : 'js/*.js'
+      },
+      options: {
+        watchTask: true,
+        server: {
+                baseDir: "./"
         }
+      }
     },
-        
 
     watch: {
       scripts: {
@@ -50,15 +49,15 @@ module.exports = function(grunt) {
 
   });
 
-  // Load the plugins tasks 
+  // Load the plugins tasks
   grunt.loadNpmTasks('grunt-sass');
-  
+
   grunt.loadNpmTasks('grunt-contrib-imagemin');
 
   grunt.loadNpmTasks('grunt-browser-sync');
 
   grunt.loadNpmTasks('grunt-contrib-watch');
-  
+
   // Default task(s).
   grunt.registerTask('default', ['sass','imagemin','browserSync','watch']);
 };
