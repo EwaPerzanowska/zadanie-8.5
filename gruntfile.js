@@ -9,7 +9,7 @@ module.exports = function(grunt) {
   		},
   		dist: {
   			files: {
-  				'style.css': 'style.sass'
+  				'css/style.css': 'sass/style.sass'
   			}
   		}
   	},
@@ -27,19 +27,19 @@ module.exports = function(grunt) {
 
     browserSync: {
   		bsFiles: {
-  			src : 'js/*.js'
+  			src : ['js/*.js', 'css/style.css']
       },
       options: {
         watchTask: true,
         server: {
-                baseDir: "./"
+          baseDir: "./"
         }
       }
     },
 
     watch: {
       scripts: {
-          files: ['*.sass'],
+          files: ['sass/*.sass'],
           tasks: ['sass'],
           options: {
               spawn: false
