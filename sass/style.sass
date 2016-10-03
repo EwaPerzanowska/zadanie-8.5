@@ -1,3 +1,155 @@
+@import helper
+
 body
   position: relative
-  background: red
+  margin: 0
+  font-family: Arial, sans-serif
+
+ul
+  padding: 0
+  list-style: none
+
+.i-hamburger
+  display: inline-block
+  width: 20px
+  height: 3px
+  background: $baseColor
+  position: relative
+
+  &::after,
+  &::before
+    content: ''
+    position: absolute
+    left: 0
+    width: 20px
+    height: 3px
+    background: $baseColor
+    top: 5px
+
+  &::after
+    top: 10px
+
+.container
+  margin: 0 auto
+  max-width: 1000px
+  box-sizing: border-box
+
+.TopBar
+  box-shadow: 0 0 5px rgba(0, 0, 0, .4)
+  > .wrapper
+    +clearfix
+    @extend .container
+
+    .logo
+      float: left
+      width: 20%
+      padding: 12px 0 15px 10px
+      box-sizing: border-box
+
+    .navigation
+      float: right
+      width: 80%
+
+.Menu
+  +clearfix
+  float: right
+
+  .item
+    float: left
+
+    &.-hamburger
+      display: none
+
+    a
+      display: inline-block
+      font-size: 14px
+      line-height: 24px
+      text-decoration: none
+      text-transform: uppercase
+      padding: 0 10px
+      color: $baseColor
+
+  @media screen and (max-width: 768px)
+    .item
+      display: none
+
+      &.-hamburger
+        display: inline-block
+        padding: 7px 0 0
+
+.Slogan
+  > .wrapper
+    padding: 50px 10px
+    @extend .container
+
+.Headline
+  text-align: center
+  font-size: 50px
+  line-height: 1.4em
+  text-transform: uppercase
+
+  span
+    color: #00ff75
+
+  @media screen and (max-width: 768px)
+    font-size: 24px
+
+.Title
+  text-align: center
+  position: relative
+  max-width: 600px
+  margin: 0 auto
+
+  span
+    background: $baseColor1
+    position: relative
+    z-index: 2
+    padding: 0 10px
+
+  &::after
+    content: ''
+    display: block
+    border-bottom: 1px solid $baseColor
+    position: relative
+    top: -9px
+
+.h-centerInner
+  padding: 20px 10px
+  text-align: center
+
+.Button
+  display: inline-block
+  background: $baseColor2
+  color: $baseColor1
+
+  border-radius: 3px
+
+  padding: 5px  10px
+  text-align: center
+  width: 250px
+  transition: background .3s
+
+  &:hover
+    background: darken($baseColor2, 10%)
+  span
+    position: relative
+
+.AddressBox
+
+  .icon
+    margin: 20px
+    display: inline-block
+    width: 30px
+    height: 30px
+
+    &.-letter
+      background: url(http://placehold.it/30x30) no-repeat center center
+
+  a
+    display: block
+    color: $baseColor2
+    text-decoration: none
+
+  p
+    margin: 0
+    line-height: 1.5em
